@@ -45,7 +45,7 @@ public class ProductServiceImpl implements ProductService{
   public Product update(int productId, Product product) {
     //return productCrudRepository.save(product);
     if(!getProduct(productId).isPresent()){
-      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No credentials for preemptive authentication");
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Product not found");
     }
     Product productAux = productCrudRepository.save(product);
     productAux.setPrice(null);
